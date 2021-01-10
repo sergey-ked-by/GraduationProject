@@ -24,7 +24,7 @@ public class ReadProperties {
     }
 
     public String getBrowserName() {
-        return properties.getProperty(  "browserType");
+        return properties.getProperty("browserType");
     }
 
     public boolean isHeadless() {
