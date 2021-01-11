@@ -6,15 +6,17 @@ import pages.AddProjectPage;
 
 public class AddProjectSteps {
     private WebDriver driver;
+    private String projectName;
 
     public AddProjectSteps(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void addProject() {
+    public void addProject(String projectName) {
+        this.projectName = projectName;
         AddProjectPage addProjectPage = new AddProjectPage(driver, true);
         addProjectPage.getAddProjectButton().click();
-        addProjectPage.getNewProjectNameField().sendKeys("Project 1");
+        addProjectPage.getNewProjectNameField().sendKeys(projectName);
         Select select = new Select(addProjectPage.getNewProjectDataTypeDropbox());
         select.selectByIndex(1);
         addProjectPage.getNewProjectSaveButton().click();

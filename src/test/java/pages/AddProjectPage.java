@@ -6,10 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class AddProjectPage extends BasePage {
+    private static String ENDPOINT = "/project";
+
     protected By addProjectButtonSelector = By.cssSelector("div[class='icon-bg icon-plus']");
-    protected By newProjectNameSelector = By.id("project_name");
+    protected By newProjectNameFieldSelector = By.id("project_name");
     protected By newProjectDataTypeSelector = By.id("project_date_type");
-    protected By newProjectSaveSelector = By.cssSelector("input[value='Сохранить']");
+    protected By newProjectSaveButtonSelector = By.cssSelector("input[value='Сохранить']");
     protected By ERROR_MESSAGE_Selector= By.className("error-on-top");
 
     public AddProjectPage(WebDriver driver, boolean openPageByUrl) {
@@ -18,7 +20,7 @@ public class AddProjectPage extends BasePage {
 
     @Override
     protected void openPage() {
-        driver.get(BASE_URL);
+        driver.get(BASE_URL + ENDPOINT);
     }
 
     public boolean isPageOpened() {
@@ -34,7 +36,7 @@ public class AddProjectPage extends BasePage {
     }
 
     public WebElement getNewProjectNameField() {
-        return waits.getElementBy(newProjectNameSelector);
+        return waits.getElementBy(newProjectNameFieldSelector);
     }
 
     public WebElement getNewProjectDataTypeDropbox() {
@@ -42,7 +44,7 @@ public class AddProjectPage extends BasePage {
     }
 
     public WebElement getNewProjectSaveButton() {
-        return waits.getElementBy(newProjectSaveSelector);
+        return waits.getElementBy(newProjectSaveButtonSelector);
     }
 
     public WebElement getErrorMessage(){
