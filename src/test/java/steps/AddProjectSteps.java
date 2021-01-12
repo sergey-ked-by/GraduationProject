@@ -1,5 +1,6 @@
 package steps;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import pages.AddProjectPage;
@@ -12,6 +13,7 @@ public class AddProjectSteps {
         this.driver = driver;
     }
 
+    @Step
     public void addProject(String projectName) {
         this.projectName = projectName;
         AddProjectPage addProjectPage = new AddProjectPage(driver, true);

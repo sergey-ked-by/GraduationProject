@@ -1,5 +1,6 @@
 package steps;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import pages.EditProjectPage;
 
@@ -11,6 +12,7 @@ public class EditProjectSteps {
         this.driver = driver;
     }
 
+    @Step
     public void editProject() {
         EditProjectPage editProjectPage = new EditProjectPage(driver, true);
         editProjectPage.getEditProjectCheckbox().click();

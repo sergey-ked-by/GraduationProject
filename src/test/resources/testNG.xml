@@ -4,8 +4,8 @@
     <test name="test 1" thread-count="2" parallel="methods">
         <classes>
             <class name="tests.guiTests.MainTest"></class>
-            <parameter name="username" value="atrostyanko+aqa07@gmail.com"></parameter>
-            <parameter name="psw" value="w3n1bU7F4rxOfnfvrBJL"></parameter>
+            <parameter name="username" value="sergey.ked.by@gmail.com"></parameter>
+            <parameter name="psw" value="29xvqw718o"></parameter>
         </classes>
     </test>
     <test name="test 2">
