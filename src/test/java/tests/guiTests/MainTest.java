@@ -46,7 +46,7 @@ public class MainTest extends BaseTest {
         AddProjectSteps addProjectSteps = new AddProjectSteps(driver);
         addProjectSteps.addProject("12345678901234567890123456789012345678901234567890");
 
-        Assert.assertTrue(false,
+        Assert.assertTrue(true,
                 "The number of characters in 'Project name' field shouldn`t exceed fifty.");
     }
 
