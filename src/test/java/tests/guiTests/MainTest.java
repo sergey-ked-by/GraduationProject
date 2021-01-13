@@ -16,6 +16,8 @@ public class MainTest extends BaseTest {
     @TmsLink ("1")
     @Severity (SeverityLevel.BLOCKER)
     public void LoginPositiveTest() {
+        System.out.println(readProperties.getUserName());
+        System.out.println(driver.getWindowHandle());
         LoginSteps loginSteps = new LoginSteps(driver);
         loginSteps.login(readProperties.getUserName(), readProperties.getPassword());
 
@@ -46,7 +48,7 @@ public class MainTest extends BaseTest {
         AddProjectSteps addProjectSteps = new AddProjectSteps(driver);
         addProjectSteps.addProject("12345678901234567890123456789012345678901234567890");
 
-        Assert.assertTrue(true,
+        Assert.assertTrue(false,
                 "The number of characters in 'Project name' field shouldn`t exceed fifty.");
     }
 
