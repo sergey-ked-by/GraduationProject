@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 public class LoginPage extends BasePage {
     protected By emailSelector = By.id("user_auth_email");
     protected By passwordSelector = By.id("user_auth_password");
-    protected By loginButtonSelector = By.cssSelector("[value=Войти]");
+    protected By loginButtonSelector = By.xpath("//input[@value='Войти']");
     protected By ERROR_MESSAGE_Selector= By.className("error-on-top");
 
     public LoginPage(WebDriver driver, boolean openPageByUrl) {

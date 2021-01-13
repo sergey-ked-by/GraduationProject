@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 public class EditProjectPage extends BasePage {
     private static String ENDPOINT = "/project";
 
-    protected By editProjectCheckboxSelector = By.id("22002");
+    protected By editProjectCheckboxSelector = By.cssSelector("div.prj:nth-child(1)>span.checkbox:nth-child(1)>input");
     protected By editProjectButtonSelector = By.cssSelector("div[class='icon-bg icon-pen']");
     protected By editProjectDescriptionFieldSelector = By.id("project_description");
     protected By editProjectSaveButtonSelector = By.cssSelector("input[value='Сохранить']");

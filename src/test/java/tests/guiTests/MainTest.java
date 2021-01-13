@@ -16,8 +16,6 @@ public class MainTest extends BaseTest {
     @TmsLink ("1")
     @Severity (SeverityLevel.BLOCKER)
     public void LoginPositiveTest() {
-        System.out.println(readProperties.getUserName());
-        System.out.println(driver.getWindowHandle());
         LoginSteps loginSteps = new LoginSteps(driver);
         loginSteps.login(readProperties.getUserName(), readProperties.getPassword());
 

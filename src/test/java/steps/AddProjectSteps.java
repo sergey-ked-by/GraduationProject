@@ -21,6 +21,6 @@ public class AddProjectSteps {
         addProjectPage.getNewProjectNameField().sendKeys(projectName);
         Select select = new Select(addProjectPage.getNewProjectDataTypeDropbox());
         select.selectByIndex(1);
-        addProjectPage.getNewProjectSaveButton().click();
+        addProjectPage.getNewProjectSaveButton().submit();
     }
 }
