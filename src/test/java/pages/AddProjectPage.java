@@ -11,7 +11,7 @@ public class AddProjectPage extends BasePage {
     protected By addProjectButtonSelector = By.cssSelector("div[class='icon-bg icon-plus']");
     protected By newProjectNameFieldSelector = By.id("project_name");
     protected By newProjectDataTypeSelector = By.id("project_date_type");
-    protected By newProjectSaveButtonSelector = By.cssSelector("input[value='Сохранить']");
+    protected By newProjectSaveButtonSelector = By.cssSelector("[type='submit']");
     protected By ERROR_MESSAGE_Selector= By.className("error-on-top");
 
     public AddProjectPage(WebDriver driver, boolean openPageByUrl) {
