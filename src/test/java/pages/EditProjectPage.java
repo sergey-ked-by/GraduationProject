@@ -4,6 +4,9 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import wrappers.Button;
+import wrappers.Checkbox;
+import wrappers.Input;
 
 public class EditProjectPage extends BasePage {
     private static String ENDPOINT = "/project";
@@ -27,17 +30,20 @@ public class EditProjectPage extends BasePage {
         return waits.isElementDisplayed(By.id("span_edit_button"));
     }
 
-    public WebElement getEditProjectCheckbox() {
-        return driver.findElement(editProjectCheckboxSelector);
+    public Checkbox getEditProjectCheckbox() {
+        return new Checkbox(driver, waits.getElementBy(editProjectCheckboxSelector));
     }
-    public WebElement getEditProjectButton() {
-        return driver.findElement(editProjectButtonSelector);
+
+    public Button getEditProjectButton() {
+        return new Button(driver, waits.getElementBy(editProjectButtonSelector));
     }
-    public WebElement getEditProjectDescriptionField() {
-        return driver.findElement(editProjectDescriptionFieldSelector);
+
+    public Input getEditProjectDescriptionField() {
+        return new Input(driver, waits.getElementBy(editProjectDescriptionFieldSelector));
     }
-    public WebElement getEditProjectSaveButton() {
-        return driver.findElement(editProjectSaveButtonSelector);
+
+    public Button getEditProjectSaveButton() {
+        return new Button(driver, waits.getElementBy(editProjectSaveButtonSelector));
     }
 
     public WebElement getErrorMessage(){

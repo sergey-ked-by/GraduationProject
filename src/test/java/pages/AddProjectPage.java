@@ -4,6 +4,9 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import wrappers.Button;
+import wrappers.Input;
+import wrappers.UISelect;
 
 public class AddProjectPage extends BasePage {
     private static String ENDPOINT = "/project";
@@ -31,20 +34,20 @@ public class AddProjectPage extends BasePage {
         }
     }
 
-    public WebElement getAddProjectButton() {
-        return waits.getElementBy(addProjectButtonSelector);
+    public Button getAddProjectButton() {
+        return new Button(driver, waits.getElementBy(addProjectButtonSelector));
     }
 
-    public WebElement getNewProjectNameField() {
-        return waits.getElementBy(newProjectNameFieldSelector);
+    public Input getNewProjectNameField() {
+        return new Input(driver, waits.getElementBy(newProjectNameFieldSelector));
     }
 
-    public WebElement getNewProjectDataTypeDropbox() {
-        return waits.getElementBy(newProjectDataTypeSelector);
+    public UISelect getNewProjectDataTypeDropbox() {
+        return new UISelect(driver, waits.getElementBy(newProjectDataTypeSelector));
     }
 
-    public WebElement getNewProjectSaveButton() {
-        return waits.getElementBy(newProjectSaveButtonSelector);
+    public Button getNewProjectSaveButton() {
+        return new Button(driver, waits.getElementBy(newProjectSaveButtonSelector));
     }
 
     public WebElement getErrorMessage(){

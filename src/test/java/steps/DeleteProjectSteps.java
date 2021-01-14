@@ -16,6 +16,6 @@ public class DeleteProjectSteps {
         DeleteProjectPage deleteProjectPage = new DeleteProjectPage(driver, true);
         deleteProjectPage.getDeleteProjectCheckbox().click();
         deleteProjectPage.getDeleteProjectButton().click();
-        deleteProjectPage.getDeleteConfirmationButton();
+        deleteProjectPage.getDeleteConfirmationButton().click();
     }
 }

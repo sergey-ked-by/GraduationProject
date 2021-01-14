@@ -4,7 +4,8 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import wrappers.Button;
+import wrappers.Input;
 
 public class LoginPage extends BasePage {
     protected By emailSelector = By.id("user_auth_email");
@@ -29,16 +30,16 @@ public class LoginPage extends BasePage {
         }
     }
 
-    public WebElement getEmailField() {
-        return waits.getElementBy(emailSelector);
+    public Input getEmailField() {
+        return new Input(driver, waits.getElementBy(emailSelector));
     }
 
-    public WebElement getPasswordField() {
-        return waits.getElementBy(passwordSelector);
+    public Input getPasswordField() {
+        return new Input(driver,waits.getElementBy(passwordSelector));
     }
 
-    public WebElement getLoginButton() {
-        return waits.getElementBy(loginButtonSelector);
+    public Button getLoginButton() {
+        return new Button(driver, waits.getElementBy(loginButtonSelector));
     }
 
     public WebElement getErrorMessage(){

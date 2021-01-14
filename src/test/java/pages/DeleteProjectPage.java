@@ -4,6 +4,8 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import wrappers.Button;
+import wrappers.Checkbox;
 
 public class DeleteProjectPage extends BasePage {
     private static String ENDPOINT = "/project";
@@ -26,15 +28,18 @@ public class DeleteProjectPage extends BasePage {
         return waits.isElementDisplayed(By.id("span_edit_button"));
     }
 
-    public WebElement getDeleteProjectCheckbox() {
-        return driver.findElement(deleteProjectCheckboxSelector);
+    public Checkbox getDeleteProjectCheckbox() {
+        return new Checkbox(driver, waits.getElementBy(deleteProjectCheckboxSelector));
     }
-    public WebElement getDeleteProjectButton() {
-        return driver.findElement(deleteProjectButtonSelector);
+
+    public Button getDeleteProjectButton() {
+        return new Button(driver, waits.getElementBy(deleteProjectButtonSelector));
     }
-    public WebElement getDeleteConfirmationButton() {
-        return driver.findElement(deleteConfirmationButtonSelector);
+
+    public Button getDeleteConfirmationButton() {
+        return new Button(driver, waits.getElementBy(deleteConfirmationButtonSelector));
     }
+
     public WebElement getErrorMessage(){
         return driver.findElement(ERROR_MESSAGE_Selector);
     }

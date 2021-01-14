@@ -2,8 +2,8 @@ package steps;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import pages.AddProjectPage;
+import wrappers.UISelect;
 
 public class AddProjectSteps {
     private WebDriver driver;
@@ -19,7 +19,7 @@ public class AddProjectSteps {
         AddProjectPage addProjectPage = new AddProjectPage(driver, true);
         addProjectPage.getAddProjectButton().click();
         addProjectPage.getNewProjectNameField().sendKeys(projectName);
-        Select select = new Select(addProjectPage.getNewProjectDataTypeDropbox());
+        UISelect select = new UISelect(addProjectPage.getNewProjectDataTypeDropbox());
         select.selectByIndex(1);
         addProjectPage.getNewProjectSaveButton().submit();
     }
