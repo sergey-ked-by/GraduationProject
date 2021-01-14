@@ -5,6 +5,7 @@ import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import steps.AddProjectSteps;
+import steps.DeleteProjectSteps;
 import steps.EditProjectSteps;
 import steps.LoginSteps;
 
@@ -36,21 +37,20 @@ public class MainTest extends BaseTest {
         Assert.assertTrue(true);
     }
 
-    @Test (priority = 2, description = "Add project negative test.")
-    @Description ("Checking for a login possibility with invalid parameters.")
-    @Attachment()
-    public void AddProjectNegativeTest() {
+    @Test (priority = 3, description = "Delete project positive test.")
+    @Description ("Checking for a delete project possibility.")
+    @Severity (SeverityLevel.NORMAL)
+    public void DeleteProjectPositiveTest() {
         LoginSteps loginSteps = new LoginSteps(driver);
         loginSteps.login(readProperties.getUserName(), readProperties.getPassword());
 
-        AddProjectSteps addProjectSteps = new AddProjectSteps(driver);
-        addProjectSteps.addProject("12345678901234567890123456789012345678901234567890");
+        DeleteProjectSteps deleteProjectSteps = new DeleteProjectSteps(driver);
+        deleteProjectSteps.deleteProject();
 
-        Assert.assertTrue(true,
-                "The number of characters in 'Project name' field shouldn`t exceed fifty.");
+        Assert.assertTrue(true);
     }
 
-    @Test (priority = 3, description = "Edit project positive test.")
+    @Test (priority = 4, description = "Edit project positive test.")
     @Description ("Checking for a project parameters edit possibility.")
     public void EditProjectPositiveTest() {
         LoginSteps loginSteps = new LoginSteps(driver);
@@ -60,5 +60,21 @@ public class MainTest extends BaseTest {
         editProjectSteps.editProject();
 
         Assert.assertTrue(true);
+    }
+
+    @Test (priority = 5, description = "Add project negative test.")
+    @Description ("Bug found: when entering a project name longer than 50 characters," +
+            " the project shouldn`t have been created.")
+    @Attachment()
+    public void AddProjectNegativeTest() {
+        LoginSteps loginSteps = new LoginSteps(driver);
+        loginSteps.login(readProperties.getUserName(), readProperties.getPassword());
+
+        AddProjectSteps addProjectSteps = new AddProjectSteps(driver);
+        addProjectSteps.addProject("12345678901234567890123456789012345678901234567890");
+
+        Assert.assertTrue(true,
+                "The number of characters in 'Project name' field shouldn`t exceed fifty and test shouldn`t " +
+                        "have been passed.");
     }
 }

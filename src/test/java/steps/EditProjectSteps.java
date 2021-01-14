@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import pages.EditProjectPage;
 
 public class EditProjectSteps {
-
     private WebDriver driver;
 
     public EditProjectSteps(WebDriver driver) {
