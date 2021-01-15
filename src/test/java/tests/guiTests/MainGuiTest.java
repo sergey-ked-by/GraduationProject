@@ -9,7 +9,7 @@ import steps.DeleteProjectSteps;
 import steps.EditProjectSteps;
 import steps.LoginSteps;
 
-public class MainTest extends BaseTest {
+public class MainGuiTest extends BaseTest {
 
     @Test (priority = 1, description = "Login positive test.")
     @Description ("Checking for a login possibility.")

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="tests.guiTests.MainTest">
+<suite name="tests.guiTests.MainGuiTest">
     <test name="test 1" thread-count="2" parallel="methods">
         <classes>
-            <class name="tests.guiTests.MainTest"></class>
+            <class name="tests.guiTests.MainGuiTest"></class>
             <parameter name="username" value="sergey.ked.by@gmail.com"></parameter>
             <parameter name="psw" value="29xvqw718o"></parameter>
         </classes>
     </test>
     <test name="test 2">
         <classes>
-            <class name="tests.guiTests.MainTest"></class>
+            <class name="tests.guiTests.MainGuiTest"></class>
         </classes>
     </test>
 </suite>
