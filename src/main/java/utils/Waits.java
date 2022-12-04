@@ -8,11 +8,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class Waits {
     private WebDriver driver;
     private WebDriverWait webDriverWait;
 
-    public Waits(WebDriver driver, int timeOut) {
+    public Waits(WebDriver driver, Duration timeOut) {
         this.driver = driver;
         webDriverWait = new WebDriverWait(driver, timeOut);
     }
@@ -20,7 +22,7 @@ public class Waits {
     public Waits(WebDriver driver) {
         this.driver = driver;
         ReadProperties readProperties = new ReadProperties();
-        webDriverWait = new WebDriverWait(driver, readProperties.getTimeOut());
+        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(readProperties.getTimeOut()));
     }
 
     public boolean isElementDisplayed(By by) {
