@@ -17,6 +17,11 @@ public class ShoppingCartSteps {
     @Step("Go to checkout")
     public void goToCheckout() {
         shoppingCartPage.goToCheckout();
+        try {
+            com.codeborne.selenide.Selenide.switchTo().alert().accept();
+        } catch (Throwable e) {
+            // No alert was present, continue as usual
+        }
         checkoutSteps.verifyCheckoutPageIsOpened();
     }
 }

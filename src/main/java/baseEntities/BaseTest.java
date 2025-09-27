@@ -10,10 +10,22 @@ import utils.ReadProperties;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
+        ChromeOptions options = new ChromeOptions();
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
+        options.setExperimentalOption("prefs", prefs);
+
+        Configuration.browserCapabilities = options;
         Configuration.browser = ReadProperties.getBrowserType();
         Configuration.headless = ReadProperties.isHeadless();
         Configuration.baseUrl = ReadProperties.getUrl();
