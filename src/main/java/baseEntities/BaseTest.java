@@ -19,17 +19,23 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
+        Configuration.browser = ReadProperties.getBrowserType();
+        Configuration.headless = ReadProperties.isHeadless();
+        Configuration.baseUrl = ReadProperties.getUrl();
+        Configuration.timeout = ReadProperties.getTimeout() * 1000;
+
         ChromeOptions options = new ChromeOptions();
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
         options.setExperimentalOption("prefs", prefs);
 
+        if (System.getenv("CI") != null) {
+            options.addArguments("--headless");
+        }
+
         Configuration.browserCapabilities = options;
-        Configuration.browser = ReadProperties.getBrowserType();
-        Configuration.headless = ReadProperties.isHeadless();
-        Configuration.baseUrl = ReadProperties.getUrl();
-        Configuration.timeout = ReadProperties.getTimeout() * 1000;
+
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         open("");
