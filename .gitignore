@@ -17,3 +17,6 @@ buildNumber.properties
 
 # macOS
 .DS_Store
+
+# Allure
+.allure/

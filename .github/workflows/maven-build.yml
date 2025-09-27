@@ -35,6 +35,17 @@ jobs:
       # 'install' runs tests and packages the app
       run: mvn -B install
 
+    - name: Generate Allure Report
+      if: always()
+      run: mvn allure:report
+
+    - name: Upload Allure Report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-report
+        path: target/site/allure-maven-plugin
+
     # --- New Docker Steps ---
 
     # Step 4: Log in to GitHub Container Registry
