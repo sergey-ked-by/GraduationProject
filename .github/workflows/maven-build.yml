@@ -34,7 +34,7 @@ jobs:
     # We build only the 'builder' stage from our Dockerfile, which runs `mvn test`.
     - name: Run tests inside Docker
       run: |
-        docker build --target builder --tag tms-project-builder .
+        docker build --tag tms-project-builder .
 
     # Step 4: Copy Allure results from the Docker container
     # We create a temporary container from the builder image to copy the test results.

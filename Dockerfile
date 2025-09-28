@@ -13,5 +13,8 @@ RUN mvn dependency:go-offline
 # Copy the entire source code of the project
 COPY src ./src
 
+# Run tests during the build for CI validation
+RUN mvn test
+
 # Set the default command to run tests when the container starts
 CMD ["mvn", "test"]
